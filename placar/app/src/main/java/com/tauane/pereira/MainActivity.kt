@@ -1,8 +1,10 @@
 package com.tauane.pereira
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -10,18 +12,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        return botaocontinuar.setOnClickListener {
-            it:View
-            val time1 = nomeDoTime1.text.toString().trim()
-            val time2 = nomeDoTime2.text.toString().trim()
+         continuarBotao.setOnClickListener {
 
-            if (time1 == "") {
-                toast.makeText(context:this, text:"Preencha o time 1", Toast.LENGTH_SHORT).
-                return@setOfClickListener
+          var time1 = NomeDoTime1.text
+             var time2 = NomeDoTime2.text
+             var intent = Intent(this,SporteActivity::class.java)
+             intent.putExtra("TIME1" , time1)
+             intent.putExtra("TIME2" , time2)
+             startActivity(intent)
 
              }
 
-            }
+
 
 
         }
